@@ -1,0 +1,319 @@
+/* --- 1. FONT DEFINITIONS --- */
+@font-face {
+    font-family: 'CMU Serif';
+    src: url('./fonts/CMUSerif-Roman.woff2') format('woff2');
+    font-weight: 400; font-style: normal;
+}
+@font-face {
+    font-family: 'CMU Serif';
+    src: url('./fonts/CMUSerif-Italic.woff2') format('woff2');
+    font-weight: 400; font-style: italic;
+}
+@font-face {
+    font-family: 'CMU Serif';
+    src: url('./fonts/CMUSerif-Bold.woff2') format('woff2');
+    font-weight: 700; font-style: normal;
+}
+@font-face {
+    font-family: 'CMU Typewriter';
+    src: url('./fonts/CMUTypewriter-Regular.woff2') format('woff2');
+    font-weight: 400; font-style: normal;
+}
+@font-face {
+    font-family: 'CMU Sans';
+    src: url('./fonts/cmunss.woff2') format('woff2'); 
+    font-weight: 400; font-style: normal;
+}
+
+/* Mimics LaTeX \textsc{} */
+.textsc { font-variant: small-caps; letter-spacing: 0.05em; }
+
+/* Mimics LaTeX \mathsf{} */
+.mathsf {
+    font-family: 'CMU Sans', sans-serif;
+    font-size: 0.92em; 
+    letter-spacing: 0.01em;
+    vertical-align: baseline; 
+    position: relative;
+    top: -0.02em; 
+    font-weight: 400;
+}
+
+/* Inline Monospace Reference */
+.mono-ref {
+    font-family: 'CMU Typewriter', monospace;
+    font-size: 1rem; 
+    font-style: normal; 
+}
+
+/* --- 2. BASE DOCUMENT STYLE --- */
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'CMU Serif', serif;
+    font-size: 15px;
+    line-height: 1.6;
+    background-color: #f7fcfe;
+    color: #111;
+    margin: 0;
+    padding: 50px 20px;
+    counter-reset: section-counter nav-counter;
+}
+
+.container { max-width: 750px; margin: 0 auto; }
+
+/* Global Typography & Links */
+a { 
+    color: #0044cc; 
+    text-decoration: underline; 
+    transition: color 0.2s ease;
+}
+a:hover { color: #4488ff; }
+p { margin-bottom: 1.5rem; }
+
+/* --- 3. VERTICAL QUICK NAVIGATION --- */
+.quick-nav { 
+    position: fixed; 
+    top: 25px;   
+    left: 25px;  
+    z-index: 100; 
+    counter-reset: nav-counter;
+}
+
+.nav-brand { 
+    font-size: 1rem; 
+    color: #666; 
+    margin-bottom: 15px; 
+    display: block; 
+}
+
+.nav-links { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    padding-left: 20px;
+}
+
+.nav-item, .main-nav-label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.nav-item::before,
+.main-nav-label::before {
+    counter-increment: nav-counter;
+    content: counter(nav-counter) " ";
+    margin-right: 10px; 
+    color: #999;
+    width: 12px; 
+    display: inline-block;
+}
+
+.quick-nav a { color: #666; text-decoration: none; }
+
+/* --- 3.1 COLLAPSIBLE NAV LOGIC --- */
+.nav-collapsible { display: block; }
+.nav-toggle { display: none; }
+
+.triangle {
+    position: absolute;
+    left: -18px; 
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-top: 3.5px solid transparent;
+    border-bottom: 3.5px solid transparent;
+    border-left: 5px solid #bbb; 
+    transition: transform 0.15s ease;
+}
+
+.nav-toggle:checked ~ .main-nav-label .triangle { 
+    transform: translateY(-50%) rotate(90deg); 
+}
+
+.nav-sub-items {
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 22px; 
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: max-height 0.3s ease;
+    counter-reset: nav-sub-counter;
+}
+
+.nav-toggle:checked ~ .nav-sub-items { 
+    max-height: 80px; 
+    margin-top: 4px; 
+}
+
+.nav-sublink { 
+    font-size: 0.8rem !important; 
+    color: #888 !important; 
+    cursor: pointer !important; 
+    text-decoration: none !important; 
+}
+
+.nav-sublink::before {
+    counter-increment: nav-sub-counter;
+    content: "2." counter(nav-sub-counter) " ";
+    margin-right: 6px;
+    color: #ccc;
+}
+
+/* --- 4. MAIN HEADER --- */
+.document-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin: 0 0 4rem;
+}
+.name { font-size: 2rem; font-weight: 400; margin: 0; }
+.affiliation { font-style: normal; color: #555; margin: 5px 0; }
+.contact-info { font-size: 0.9rem; margin-top: 12px; }
+.email-line { color: #111; margin-bottom: 2px; }
+
+.header-image img {
+    height: 140px; width: 140px;
+    object-fit: cover; border-radius: 50%;
+}
+
+/* --- 5. SECTIONING --- */
+.section-title {
+    font-size: 1.25rem; font-weight: 700; margin-top: 2rem;
+    border-bottom: 1px solid #eee; padding-bottom: 5px;
+    counter-reset: subsection-counter;
+}
+.section-title::before {
+    counter-increment: section-counter;
+    content: counter(section-counter) " "; margin-right: 8px;
+}
+
+.subsection-title { 
+    font-size: 1.05rem; font-weight: 700; margin: 1rem 0 0.8rem 0; color: #111; 
+}
+.subsection-title::before {
+    counter-increment: subsection-counter;
+    content: counter(section-counter) "." counter(subsection-counter) " ";
+    margin-right: 8px;
+}
+
+/* --- 6. TEACHING GRID --- */
+.teaching-list { 
+    padding-left: 0; 
+    list-style: none; 
+    margin-top: 0.5rem; 
+    margin-bottom: 1.5rem; 
+}
+
+.course-entry {
+    display: grid;
+    grid-template-columns: max-content max-content 1fr;
+    column-gap: 8px;
+    row-gap: 2px;
+    margin-bottom: 12px;
+    align-items: baseline;
+}
+
+.term { 
+    grid-column: 1; 
+    color: #444; 
+    min-width: 95px; 
+    display: inline-block;
+}
+
+.code, .desc-label { grid-column: 2; text-align: left; }
+.code { font-weight: 400; }
+.desc-label { font-style: italic; font-size: 0.9rem; color: #666; }
+
+.title, .desc-text { grid-column: 3; }
+.desc-text { font-size: 0.9rem; color: #666; line-height: 1.4; }
+
+/* --- 7. PUBLICATIONS --- */
+.pub-list {
+    margin-top: 1.5rem;
+    counter-reset: pub-counter; 
+}
+
+.pub-entry {
+    display: grid;
+    grid-template-columns: max-content max-content 1fr;
+    column-gap: 12px;
+    margin-bottom: 2rem;
+    align-items: baseline;
+}
+
+.pub-id {
+    font-family: 'CMU Typewriter', monospace;
+    font-size: 1.05rem;
+    color: #777;
+    min-width: 28px;
+}
+.pub-id::before {
+    counter-increment: pub-counter;
+    content: "[" counter(pub-counter) "]";
+}
+
+.pub-venue-short { font-weight: 700; color: #111; }
+.pub-title { grid-column: 3; font-weight: 400; line-height: 1.3; }
+
+.pub-details {
+    grid-column: 2 / span 2; 
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pub-authors { font-size: 0.95rem; color: #444; }
+.pub-venue-long { font-style: italic; font-size: 0.9rem; color: #666; margin: 2px 0; }
+
+.pub-links {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    font-style: normal; 
+}
+.pub-links a {
+    color: #0044cc; 
+    text-decoration: underline;
+    margin-right: 12px;
+    transition: color 0.2s ease;
+}
+.pub-links a:hover {
+    color: #4488ff;
+    text-decoration: underline;
+}
+
+.pub-footnote {
+    margin-top: 2px;
+    color: inherit; 
+    font-size: 0.9rem;
+    line-height: 1.3;
+    font-style: normal;
+}
+
+/* --- 8. FOOTER --- */
+footer {
+    margin-top: 6rem; border-top: 1px double #ccc; padding-top: 20px;
+    font-size: 0.8rem; font-style: italic; color: #888; text-align: center;
+}
+
+/* --- 9. RESPONSIVE DESIGN --- */
+@media (max-width: 1050px) {
+    .nav-brand { display: none; }
+    .quick-nav {
+        position: relative; top: 0; left: 0; margin-bottom: 40px;
+        display: flex; justify-content: center;
+    }
+    .nav-links { flex-direction: row; gap: 20px; align-items: flex-start; padding-left: 0; }
+    .nav-item::before, .main-nav-label::before { width: auto; }
+    .triangle { display: none; }
+}
+
+@media (max-width: 650px) {
+    .document-header { flex-direction: column-reverse; text-align: center; }
+    .header-text { margin-top: 20px; }
+    .course-entry { display: block; margin-bottom: 30px; }
+    .desc-label { display: inline-block; margin-right: 8px; }
+}

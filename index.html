@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric M. Chan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav class="quick-nav">
+        <div class="nav-brand textsc">Eric M. Chan</div>
+        <div class="nav-links">
+            <a href="#about" class="nav-item">About</a>
+            <a href="#publications" class="nav-item">Publications</a> 
+            
+            <div class="nav-collapsible">
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="main-nav-label">
+                    <span class="triangle"></span>Teaching
+                </label>
+                <div class="nav-sub-items">
+                    <a href="#ta" class="nav-sublink">TA</a>
+                    <a href="#si" class="nav-sublink">SI</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="document-header">
+            <div class="header-text">
+                <h1 class="name">Eric M. Chan</h1>
+                <p class="affiliation">Department of Computer Science &middot; University of California at Riverside</p>
+                
+                <div class="contact-info">
+                    <div class="email-line">Contact: eric.chan008@email.ucr.edu</div>
+                    <nav class="contact-links">
+                        <a href="https://orcid.org/0009-0001-1112-0185"><span class="mathsf">ORCid</span></a>
+                        <!-- &middot; <a href="#">CV [PDF]</a> -->
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="header-image">
+                <img src="./imgs/eric.jpg" alt="Eric M. Chan">
+            </div>
+        </header>
+
+        <section id="about">
+            <h2 class="section-title textsc">About Me</h2>
+            <p>
+                I am a Ph.D. candidate in computer science at the University of California, Riverside,
+                advised by Professor <a href="https://mohsenlesani.github.io/">Mohsen Lesani</a>.                
+                My research interests are primarily in theoretical distributed computing and systems.
+                I study both protocols and limitations across different distributed settings.
+                I have worked on blockchains, heterogeneous quorum systems, and replication systems.
+            </p>
+            <p>Currently, my focus is on personalization and localization in distributed systems.</p>
+            <p>I am also interested in graph theory, formal verification, complexity theory, game theory, and algorithms.</p>
+        </section>
+
+        <section id="publications">
+            <h2 class="section-title textsc">Publications</h2>
+            
+            <div class="pub-list">
+
+                <div class="pub-entry">
+                    <span class="pub-id"></span>
+                    <span class="pub-venue-short">
+                        <span class="mathsf">[JDC/26]</span>
+                    </span>
+                    <span class="pub-title"><span class="textsc">Satrapy</span>: From Abstract to Practical Consensus for Heterogeneous Quorum Systems</span>
+                    
+                    <div class="pub-details">
+                        <div class="pub-authors">Xiao Li, <strong>Eric Chan</strong>, Mohsen Lesani</div>
+                        <div class="pub-venue-long">Journal of Distributed Computing, 2026</div>
+                        <div class="pub-footnote">
+                            * This work designs a practical version of the abstract consensus protocol
+                            proposed in <span class="mono-ref">[2]</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-entry" id="disc23">
+                    <span class="pub-id"></span>
+                    <span class="pub-venue-short">
+                        <span class="mathsf">[DISC/23]</span>
+                    </span>
+                    <span class="pub-title">Quorum Subsumption for Heterogeneous Quorum Systems</span>
+                    
+                    <div class="pub-details">
+                        <div class="pub-authors">Xiao Li, <strong>Eric Chan</strong>, Mohsen Lesani</div>
+                        <div class="pub-venue-long">The International Symposium on Distributed Computing, 2023</div>
+                        <div class="pub-links"><a href="./papers/disc23.pdf">[PDF]</a></div>
+                    </div>
+                </div>
+
+                <div class="pub-entry">
+                    <span class="pub-id"></span>
+                    <span class="pub-venue-short">
+                        <span class="mathsf">[CSF/23]</span>
+                    </span>
+                    <span class="pub-title">Cross-Chain Swaps with Preferences</span>
+                    
+                    <div class="pub-details">
+                        <div class="pub-authors"><strong>Eric Chan</strong>, Marek Chrobak, Mohsen Lesani</div>
+                        <div class="pub-venue-long">IEEE Computer Security Foundations Symposium, 2023</div>
+                        <div class="pub-links"><a href="./papers/csf23.pdf">[PDF]</a></div>
+                    </div>
+                </div>
+
+                <div class="pub-entry">
+                    <span class="pub-id"></span>
+                    <span class="pub-venue-short">
+                        <span class="mathsf">[PODC/21]</span>
+                    </span>
+                    <span class="pub-title">
+                        Brief Announcement: Brokering with Hashed Timelock Contracts is 
+                        <span class="mathsf">NP</span>-Hard
+                    </span>
+                    
+                    <div class="pub-details">
+                        <div class="pub-authors"><strong>Eric Chan</strong>, Mohsen Lesani</div>
+                        <div class="pub-venue-long">ACM Symposium on Principles of Distributed Computing, 2021</div>
+                        <div class="pub-links"><a href="./papers/podc21.pdf">[PDF]</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="teaching">
+            <h2 class="section-title textsc">Teaching</h2>
+            <h3 id="ta" class="subsection-title">Teaching Assistant</h3>
+
+            <ul class="teaching-list">
+                <li class="course-entry">
+                    <span class="term">Spring 2026:</span>
+                    <span class="code">[CS100]</span>
+                    <span class="title">Software Construction (<strong>current</strong>)</span>
+                    
+                    
+                </li>
+
+                <li class="course-entry">
+                    <span class="term">Winter 2026:</span>
+                    <span class="code">[CS100]</span>
+                    <span class="title">Software Construction</span>
+                </li>
+
+                <li class="course-entry">
+                    <span class="term">Fall 2025:</span>
+                    <span class="code">[CS100]</span>
+                    <span class="title">Software Construction</span>
+                </li>
+
+                <li class="course-entry">
+                    <span class="term">Spring 2025:</span>
+                    <span class="code">[CS100]</span>
+                    <span class="title">Software Construction</span>
+
+                    <span class="desc-label">Scope.</span>
+                    <span class="desc-text">
+                        Collaborative software development,
+                        tools (<em>e.g.</em> git, valgrind, gdb, github actions, googletest, gcov),
+                        unit testing,
+                        UML diagrams,
+                        SOLID principles.
+                    </span>
+                </li>
+
+                <li class="course-entry">
+                    <span class="term">Fall 2023:</span>
+                    <span class="code">[CS247]</span>
+                    <span class="title">Principles of Distributed Computing</span>
+                    
+                    <span class="desc-label">Scope.</span>
+                    <span class="desc-text">
+                        Protocols for {broadcast, consensus, registers, atomic-commit, group membership, ...},
+                        failure detectors,
+                        limitations of protocols and failure detectors (<em>e.g.</em> FLP, asynchronous perfect failure detectors, ...),
+                        consistency models, 
+                        Bitcoin.
+                        </span>
+                </li>
+
+                <li class="course-entry">
+                    <span class="term">Winter 2022:</span>
+                    <span class="code">[CS246]</span>
+                    <span class="title">Software Verification</span>
+                    
+                    <span class="desc-label">Scope.</span>
+                    <span class="desc-text">
+                        First order logic, 
+                        SAT (solvers), 
+                        SMT theories of {EUF, integers, arrays, ...}, 
+                        deductive program verification.</span>
+                </li>
+            </ul>
+
+            <h3 id="si" class="subsection-title">Supplemental Instruction</h3>
+            <p>
+                Fall 2018: I expanded the 
+                <a href="https://arc.ucr.edu/si">Supplemental Instruction</a>
+                program at UCR to include [PHIL008] Introduction to Logic.
+            </p>
+        </section>
+
+        
+
+        <footer>
+            <p>Last updated: April 2026.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
