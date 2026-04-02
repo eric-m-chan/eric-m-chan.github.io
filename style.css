@@ -160,7 +160,10 @@ p { margin-bottom: 1.5rem; }
 
 .nav-sublink::before {
     counter-increment: nav-sub-counter;
-    content: "2." counter(nav-sub-counter) " ";
+    /* 2. Combine the parent counter AND the sub-counter */
+    /* 'nav-counter' is the 1, 2, 3... of the main nav items */
+    content: counter(nav-counter) "." counter(nav-sub-counter) " ";
+    
     margin-right: 6px;
     color: #ccc;
 }
