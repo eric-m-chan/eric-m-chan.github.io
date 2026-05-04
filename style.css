@@ -168,6 +168,47 @@ p { margin-bottom: 1.5rem; }
     color: #ccc;
 }
 
+/* --- UNIVERSAL UTILITY: EQUALS-SIGN LIST --- */
+.eq-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.eq-list li {
+    display: grid;
+    /* Col 1: Marker (20px), Col 2: Venue (250px), Col 3: Year (Left-aligned) */
+    grid-template-columns: 25px 90px 1fr;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.eq-list li::before {
+    content: "";
+    width: 14px;
+    height: 2px;
+    border-top: 1.8px solid #999999;
+    border-bottom: 1.8px solid #999999;
+    display: inline-block;
+
+    /* --- MANUAL HEIGHT CONTROL --- */
+    /* A negative value moves it UP. */
+    /* Try -1px, -2px, -3px, etc. until it's perfect. */
+    transform: translateY(-2.5px); 
+}
+
+.venue-name {
+    grid-column: 2;
+    padding-right: 15px; /* Gap before the year */
+}
+
+.venue-year {
+    grid-column: 3;
+    color: #666; /* Slightly softer color for the years */
+    font-variant-numeric: tabular-nums;
+}
+
 /* --- 4. MAIN HEADER --- */
 .document-header {
     display: flex; justify-content: space-between; align-items: center;
@@ -320,3 +361,4 @@ footer {
     .course-entry { display: block; margin-bottom: 30px; }
     .desc-label { display: inline-block; margin-right: 8px; }
 }
+
