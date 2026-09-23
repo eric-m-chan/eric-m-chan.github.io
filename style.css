@@ -40,7 +40,7 @@
 }
 
 /* Inline Monospace Reference */
-.mono-ref {
+.mono {
     font-family: 'CMU Typewriter', monospace;
     font-size: 1rem; 
     font-style: normal; 
@@ -168,6 +168,12 @@ p { margin-bottom: 1.5rem; }
     color: #ccc;
 }
 
+/* Vertical spacing above the mini-bulletin line */
+.bulletin-line {
+  margin-top: 30px;    /* Adds space ABOVE (between ORCid and Mini-bulletin) */
+  margin-bottom: 0;    /* Keeps margin crisp at the bottom */
+}
+
 /* --- UNIVERSAL UTILITY: EQUALS-SIGN LIST --- */
 .eq-list {
     list-style: none;
@@ -211,8 +217,10 @@ p { margin-bottom: 1.5rem; }
 
 /* --- 4. MAIN HEADER --- */
 .document-header {
-    display: flex; justify-content: space-between; align-items: center;
-    margin: 0 0 4rem;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; /* 1. Anchors profile photo to top (aligned with name) */
+    margin: 0 0 2rem;      /* 2. Reduced from 4rem so Section 1 stays in its original spot */
 }
 .name { font-size: 2rem; font-weight: 400; margin: 0; }
 .affiliation { font-style: normal; color: #555; margin: 5px 0; }
@@ -356,8 +364,32 @@ footer {
 }
 
 @media (max-width: 650px) {
-    .document-header { flex-direction: column-reverse; text-align: center; }
-    .header-text { margin-top: 20px; }
+    .document-header { 
+        flex-direction: column-reverse; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    /* Guarantees photo container is horizontally centered */
+    .header-image {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .header-text { 
+        margin-top: 20px; 
+        width: 100%; 
+    }
+
+    /* Forces bulletin to span full page width so text-align: left works */
+    .bulletin-line {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-top: 12px;
+        margin-bottom: 0;
+    }
+
     .course-entry { display: block; margin-bottom: 30px; }
     .desc-label { display: inline-block; margin-right: 8px; }
 }
